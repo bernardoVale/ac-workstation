@@ -1,0 +1,45 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    brew_formulas:
+      - wget
+      - vim
+
+    brew_casks:
+      - vagrant
+      - virtualbox
+      - virtualbox-extension-pack
+
+    # Use this hash for not essential casks installation
+    brew_casks_custom:
+      - chefdk
+      - caffeine
+      - iterm2
+      - docker
+
+  tasks:
+
+    - name: Installing Homebrew Formulas
+      homebrew: name="{{item}}" state=present
+      with_items: "{{brew_formulas}}"
+
+    - name: Installing Homebrew Casks
+      homebrew_cask:
+        name: "{{item}}"
+      with_items: "{{brew_casks}}"
+
+    - name: Checking Vagrant plugins
+      shell: vagrant plugin list
+      register: v_plugins
+      changed_when: no
+    
+    - name: Installing Vagrant Plugin 
+      shell: vagrant plugin install vagrant-vbguest
+      when: " 'vagrant-vbguest' not in v_plugins.stdout"
+
+    - name: Installing Not Essentials Casks
+      homebrew_cask:
+        name: "{{item}}"
+      with_items: "{{brew_casks_custom}}"
+      when: brew_casks_custom is defined
