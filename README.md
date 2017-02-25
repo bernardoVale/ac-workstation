@@ -6,7 +6,7 @@ After, it will clone the AC private repository and execute the automation.
 
 
 ````
-curl "https://gist.githubusercontent.com/bernardoVale/7005ac144327a87d92862a1952f07e4a/raw/2b05d8f721a518f1a796ee05da6338d4855c864d/install.bash" | bash
+curl "https://gist.githubusercontent.com/bernardoVale/bee011e8ae6e0a960c3762c8e7feee1d/raw/521b5f7cf7426ce9bab89d1057fde04e6a873a4f/install.bash" | bash
 ````
 
 Workflow
