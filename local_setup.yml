@@ -5,6 +5,10 @@
     brew_formulas:
       - wget
       - vim
+      - nmap
+      - packer
+      - maven
+      - pyenv
 
     brew_casks:
       - vagrant
@@ -17,6 +21,9 @@
       - caffeine
       - iterm2
       - docker
+      - google-chrome
+      - shuttle
+      - slack
 
   tasks:
 
