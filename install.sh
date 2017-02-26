@@ -42,4 +42,5 @@ else
 fi
 
 git clone $AC_REPO_URL
-bash $AC_REPO_NAME/bootstrap.sh
+cd $AC_REPO_NAME
+bash bootstrap.sh
